@@ -1,0 +1,87 @@
+<!-- <div class="ui inverted dimmer" [class.active]='loading'>
+    <div class="ui text loader">Loading</div>
+</div> -->
+
+<div class="jumbotron bg-white text-center p-0 m-0">
+  <h1 class="display-4">Corona Covid-19 Tracker</h1>
+  <hr />
+
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title" style="color: #0dfdaf;">Active</h5>
+          <p class="card-text">{{ countryData.cases }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title" style="color: #02c61a;">Recovered</h5>
+          <p class="card-text">{{ countryData.recovered }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title" style="color: #ed3a2d">Deaths</h5>
+          <p class="card-text">{{ countryData.deaths }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br />
+
+<div class="row justify-content-end">
+  <div class="col">
+      <div class="line-chart" style="
+      width: 75%;
+      height: 50%;
+  ">
+    <mat-card >
+      <canvas id="lineChart" width="400" height="400"> </canvas>
+      <br />
+    </mat-card>
+  </div>
+  </div>
+<div class="col">
+    <div class="pie-chart" style="
+    width: 75%;
+    height: 40%;
+">
+  <mat-card>
+    <form [formGroup]="form" (ngSubmit)="submit()">  
+             
+      <div class="form-group">  
+          <label for="website">Age Group Data</label>  
+          <div>
+          <select formControlName="ageGroup1" class="form-control">  
+              
+              <option>Select Age Group</option>  
+              <option *ngFor="let element of ageGroup">{{element.group}}</option>  
+          </select> 
+        </div>
+       
+          <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>  
+        
+          </div>
+    </form>  
+     <!-- <mat-form-field appearance="fill">
+  <mat-label>Age Group</mat-label>
+  <mat-select *ngIf="ageGroup"  [value]="selectedAgeGroup" (change)="onChangeAgeGroup($event.target.value)" formControlName="ageLevel" id="ageGroupLevel">
+    <mat-option *ngFor="let element of ageGroup" [value]=element.group>
+      {{element.group}}
+    </mat-option>
+  </mat-select>
+</mat-form-field> -->
+
+    <canvas id="pieChart" width="300" height="300"> </canvas>
+    <br />
+  </mat-card> 
+</div> 
+</div>
+</div>
+</div>

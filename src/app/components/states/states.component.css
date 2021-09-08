@@ -1,0 +1,37 @@
+.card{
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+    transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+    padding: 14px 80px 18px 36px;
+    cursor: pointer;
+}
+
+.card:hover{
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+.dialogWrapper{
+    position: fixed;
+    top: 15%;
+    left: 25%;
+    width: 700px;
+    height: 650px;
+    z-index: 1000;
+    background-color: white;
+    padding: 32px;
+}
+.background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 999;
+    background-color: black;
+    opacity: 0.5;
+}
+.title{
+    font-weight: bold;
+    color: #00295c;
+}

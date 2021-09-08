@@ -1,0 +1,58 @@
+<div class="jumbotron bg-white text-center">
+  <h1 class="display-4">Covid19 Tracker state wise</h1>
+  <h5 class="display-4">Select Card for State Case Details</h5>
+  <hr />
+</div>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col-sm-4" *ngFor="let state of states">
+    <div
+      class="hover-overlay ripple shadow-1-strong rounded"
+      data-mdb-ripple-color="light"
+    >
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title" style="font-weight: bold; font-size: large">
+            {{ state.name }}
+          </h3>
+          <p class="card-text">Cases: {{ state.cases }}</p>
+          <p class="card-text">Recovered: {{ state.recovered }}</p>
+          <p class="card-text">Deaths: {{ state.deaths }}</p>
+          <a
+            (click)="openstatewiseDialog(state.abbreviation)"
+            class="stretched-link"
+          ></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="isDialogVisible">
+    <div class="background" (click)="isDialogVisible = false"></div>
+    <div class="dialogWrapper">
+      <div class="header" style="display: flex; justify-content: space-between">
+        <div class="title">{{ stateData.name }}</div>
+        <h2>Population: {{ stateData.population }}</h2>
+
+        <div class="close-icon" (click)="isDialogVisible = false">x</div>
+      </div>
+      <div class="content">
+        <div class="date">
+          <!-- <mat-form-field appearance="fill">
+              <mat-label>Enter a date range</mat-label>
+              <mat-date-range-input [formGroup]="range" [rangePicker]="picker" (ngSubmit)="onSubmit()">
+                <input matStartDate formControlName="start" placeholder="Start date" >
+                <input matEndDate formControlName="end" placeholder="End date">
+              </mat-date-range-input>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-date-range-picker #picker></mat-date-range-picker>
+            
+            </mat-form-field>  -->
+        </div>
+
+        <div class="line-chart1" style="width: 75%; height: 50%">
+          <canvas id="linestateChart" width="400" height="400"> </canvas>
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
